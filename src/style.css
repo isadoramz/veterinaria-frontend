@@ -1,0 +1,104 @@
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #666666;
+    margin-top: 60px;
+}
+.vue-dog {
+  float: left;
+}
+
+.img {
+  float: left;
+  margin: 10px;
+  max-width: 20px;
+}
+
+.txt {
+  text-align: left;
+  flex-flow: column;
+}
+.welcome-txt {
+  margin-bottom: 70px;
+  padding-top: 50px;
+}
+
+.pesquisa-txt {
+  margin-bottom: 10px;
+  padding-top: 20px;
+  float: left;
+  width: 420px;
+}
+
+.cadastro-txt {
+  margin-bottom: 10px;
+  padding-top: 20px;
+  float: left;
+  width: 420px;
+}
+  
+.leftCard {
+  float: left;
+}
+  
+.rightCard {
+  float: right;  
+}
+ 
+.card {
+  width: 49.5%; 
+  height: 120px;
+  border: 2px solid #666666;   
+  padding: 10px;
+}
+ 
+.btn-styled {
+  float: left;
+  margin-right: 10px;
+  background-color: #eeeeee;
+  height: 100px;
+  width: 100px;
+  border-radius: 75px;
+}
+
+.btn-input {
+  background-color:#eeeeee;
+  float: right;
+  height: 50px;
+  width: 100px;
+  
+}
+
+.btn-cadastro {
+  background-color:#eeeeee;
+  float: left;
+  height: 50px;
+  width: 100px;
+}
+
+.div-input {
+  float: left;
+  width: 500px;
+  height: 50px;
+  margin-left: 65px;
+}
+
+.form-group {
+  justify-content: left;
+}
+
+input {
+  border: 2px solid #666666;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+label {
+  float: left;
+}
+ 
