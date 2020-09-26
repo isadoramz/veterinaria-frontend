@@ -11,14 +11,14 @@
           <div>
             <button @click="irParaPesquisaDePet" href="#" title="" class="btn-styled btn">
             </button>
-            <Card class="position" title="Pesquisa" txt="Encontre seu pet pesquisando por um nome"></Card>
+            <Card title="Pesquisa" txt="Encontre seu pet pesquisando por um nome"></Card>
           </div>  
       </div>
       <div class="card rightCard">
         <div>
             <button @click="irParaCadastroDePet" href="#" title="" class="btn-styled btn">
             </button>
-            <Card class="position" title="Novo Cadastro" txt="Não encontrou um pet? Você pode cadastrar um novo pet aqui!"></Card>
+            <Card title="Novo Cadastro" txt="Não encontrou um pet? Você pode cadastrar um novo pet aqui!"></Card>
           </div>
     </div>
     </div> 

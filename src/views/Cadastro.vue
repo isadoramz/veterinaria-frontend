@@ -31,10 +31,11 @@
                       <label for="idade">Idade</label>
                       <input type="idade" class="form-control" id="idade">
                   </div> 
+                  <button type="submit" class="btn-cadastro btn">Salvar</button>
               </div>
-              <button type="submit" class="btn-cadastro btn">Salvar</button>
           </form>
-        </div>
+        </div> 
+          
       </div>  
     </div> 
   </div>

@@ -50,7 +50,7 @@
 .card {
   width: 49.5%; 
   height: 120px;
-  border: 2px solid #666666;   
+  border: 1px solid #666666;   
   padding: 10px;
 }
  
@@ -63,22 +63,12 @@
   border-radius: 75px;
 }
 
-.btn-cadastro {
-  background-color:#eeeeee;
-  float: left;
-  height: 50px;
-  width: 100px;
-  
-}
-
 .div-input {
   float: left;
   width: 500px;
   height: 50px;
   
 }
-
-
 
 input {
   border: 2px solid #666666;
@@ -91,6 +81,17 @@ h5 {
 label {
   float: left;
 }
+
+li {
+  list-style-type: none;
+  border: 1px solid #666666;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 5px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
  
 .form-group {
   justify-content: left;
@@ -101,5 +102,28 @@ label {
   margin-left: 15px;
   height: 50px;
   width: 100px;
-  margin-top: 120px
+  margin-top: 120px;
+  color: #666666;
+}
+
+.btn-card-pesquisa {
+  background-color:#eeeeee;
+  height: 35px;
+  width: 80px;
+  float: right;
+  color: #666666;
+  margin-bottom: 15px;
+}
+
+.btn-cadastro {
+  background-color:#eeeeee;
+  height: 50px;
+  width: 80px;
+  margin: 20px;
+  color: #666666;
+  
+}
+
+.card-pesquisa {
+  border: 1px solid #666666;   
 }
