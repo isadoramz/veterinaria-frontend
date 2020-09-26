@@ -5,16 +5,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #666666;
-    margin-top: 60px;
 }
 .vue-dog {
   float: left;
-}
-
-.img {
-  float: left;
-  margin: 10px;
-  max-width: 20px;
 }
 
 .txt {
@@ -24,19 +17,24 @@
 .welcome-txt {
   margin-bottom: 70px;
   padding-top: 50px;
+}
+
+.div-txt {
+  float: left;
+  text-align: left;
+  padding-top: 20px;
+}
+
+.div-input {
+  float: left;
+  width: 500px;
+  height: 50px;
   
 }
-
-.pesquisa-txt {
+ 
+.form-group {
+  justify-content: left;
   float: left;
-  text-align: left;
-}
-
-.cadastro-txt {
-  margin-bottom: 10px;
-  padding-top: 20px;
-  float: left;
-  text-align: left;
 }
   
 .leftCard {
@@ -53,6 +51,10 @@
   border: 1px solid #666666;   
   padding: 10px;
 }
+
+.card-pesquisa {
+  border: 1px solid #666666;   
+}
  
 .btn-styled {
   float: left;
@@ -61,41 +63,6 @@
   height: 100px;
   width: 100px;
   border-radius: 75px;
-}
-
-.div-input {
-  float: left;
-  width: 500px;
-  height: 50px;
-  
-}
-
-input {
-  border: 2px solid #666666;
-}
-
-h5 {
-    font-weight: bold;
-}
-
-label {
-  float: left;
-}
-
-li {
-  list-style-type: none;
-  border: 1px solid #666666;
-  text-align: left;
-  padding-top: 15px;
-  padding-left: 5px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
- 
-.form-group {
-  justify-content: left;
-  float: left;
 }
 .btn-input {
   background-color:#eeeeee;
@@ -124,6 +91,24 @@ li {
   
 }
 
-.card-pesquisa {
-  border: 1px solid #666666;   
+input {
+  border: 2px solid #666666;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+label {
+  float: left;
+}
+
+li {
+  list-style-type: none;
+  border: 1px solid #666666;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 5px;
+  margin: 10px;
+  border-radius: 5px;
 }

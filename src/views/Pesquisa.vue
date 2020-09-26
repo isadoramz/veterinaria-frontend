@@ -4,7 +4,7 @@
       <div class="col-4">
         <img class="vue-dog" alt="VueDog" src="../assets/vue-dog.jpg">
       </div>
-      <div class="pesquisa-txt col-4">
+      <div class="div-txt col-4">
         <Welcome msg="Pesquisa de Pet" txt="Encontre um pet pesquisando por nome"></Welcome>
         <div class="div-input">
         <form>
