@@ -5,11 +5,11 @@
         <img class="vue-dog" alt="VueDog" src="../assets/vue-dog.jpg">
       </div>
       <div class="div-txt col-4">
-        <Welcome msg="Pesquisa de Pet" txt="Encontre um pet pesquisando por nome"></Welcome>
+        <Welcome msg="Pesquisa de Pet" txt="Encontre um pet pesquisando por nome!"></Welcome>
         <div class="div-input">
         <form>
           <div>
-            <label for="nome">Insira o nome do pet</label>
+            <label for="nome">Insira o nome do pet:</label>
             <input v-model="filtroNomeCachorro" type="nome" class="form-control" id="nome"/>
           </div>
         </form>

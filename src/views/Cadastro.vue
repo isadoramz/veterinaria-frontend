@@ -5,7 +5,7 @@
         <img class="vue-dog" alt="VueDog" src="../assets/vue-dog.jpg">
       </div>
       <div class="div-txt col-4">
-        <Welcome msg="Cadastro de Pet" txt="Cadastre os dados do pet aqui"></Welcome>
+        <Welcome msg="Cadastro de Pet" txt="Cadastre os dados do pet aqui:"></Welcome>
         <div class="div-input">
           <form>
               <div class="form-row">
