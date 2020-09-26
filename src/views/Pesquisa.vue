@@ -10,7 +10,7 @@
         <form>
           <div>
             <label for="nome">Insira o nome do pet</label>
-            <input type="nome" class="form-control" id="raça"/>
+            <input v-model="filtroNomeCachorro" type="nome" class="form-control" id="nome"/>
           </div>
         </form>
       </div>
@@ -19,7 +19,7 @@
             <button @click="getListaCachorros" type="button" class="btn-input btn">Pesquisar</button>
       </div>
     </div>
-    <div v-if="chamouCachorro === true">
+    <div v-if="chamouCachorro">
       <ul>
         <li class="card-pesquisa" v-for="cachorro in cachorros" :key="cachorro">
           <div class="row">
@@ -36,7 +36,7 @@
               <p>Raça: {{cachorro.raca}}</p>
             </div>
             <div class="col-2">
-               <button @click="getListaCachorros" type="button" class="btn btn-card-pesquisa">Editar</button>
+               <button @click="editaCachorro" type="button" class="btn btn-card-pesquisa">Editar</button>
             </div>
           </div>
         </li>
@@ -56,31 +56,26 @@ export default {
     data() {
     return {
       cachorros: {},
-      resultadoOperacaoApi: [],
+      filtroNomeCachorro: "",
       chamouCachorro: false,
     };
     },
     mounted() {
-    fetch("http://localhost:8080/cachorros", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok === true) {
-          return response.json();
-        }
-      })
-      .then((cachorros) => {
-        this.cachorros = cachorros;
-      });
   },
     methods: {
       getListaCachorros() {
+
+        let parametros = "";
+
+        if (this.filtroNomeCachorro != "") {
+          this.chamouCachorro = true;
+          parametros = "?nome=" + this.filtroNomeCachorro;
+        }
+
         this.chamouCachorro = true;
+
         fetch(
-          "http://localhost:8080/cachorros", 
+          "http://localhost:8080/cachorros"  + parametros, 
           {
             method: "GET",
             headers: {
@@ -93,11 +88,15 @@ export default {
          if (resposta.ok) return resposta.json();
         })
 
-        .then((jsonCachorros) => {
-          this.resultadoOperacaoApi = jsonCachorros;
-          console.log(jsonCachorros);
+        .then((json) => {
+          this.cachorros = json;
+          console.log(json);
         })
-      }
-    }
-}
+      },
+
+      editaCachorro(){
+        this.$router.push({ path: "/editarPet" });
+      },
+    },
+};
 </script>
