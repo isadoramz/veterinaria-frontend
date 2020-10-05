@@ -91,7 +91,7 @@ name: 'Cadastro',
             idade: this.idadeCadastro
         }
           fetch("http://localhost:8080/cachorros", {
-            method: "POST",
+            method: "PUT",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",

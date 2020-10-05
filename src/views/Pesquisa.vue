@@ -36,7 +36,7 @@
               <p>Raça: {{cachorro.raca}}</p>
             </div>
             <div class="col-2">
-               <button @click="editaCachorro" type="button" class="btn btn-card-pesquisa">Editar</button>
+               <button @click="editaCachorro(cachorro.id)" type="button" class="btn btn-card-pesquisa">Editar</button>
             </div>
           </div>
         </li>
@@ -61,7 +61,7 @@ export default {
     };
     },
     mounted() {
-  },
+    },
     methods: {
       getListaCachorros() {
 
@@ -94,8 +94,8 @@ export default {
         })
       },
 
-      editaCachorro(){
-        this.$router.push({ path: "/editarPet" });
+      editaCachorro(id){
+        this.$router.push({ name: "Cadastro", params: { id: id } });
       },
     },
 };

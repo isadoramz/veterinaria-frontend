@@ -19,7 +19,7 @@ const routes = [
     component: Pesquisa
   },
   {
-    path: '/cadastro',
+    path: '/cadastro/:id?',
     name: 'Cadastro',
     component: Cadastro
   },

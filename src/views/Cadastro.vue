@@ -54,10 +54,12 @@ name: 'Cadastro',
     },
     data() {
       return {
-        nomeCadastro: "",
-        tipoCadastro: "",
-        racaCadastro: "",
-        idadeCadastro: "",
+        cachorro: {
+          nomeCadastro: "",
+          tipoCadastro: "",
+          racaCadastro: "",
+          idadeCadastro: ""
+        },
         faltaNome: false,
         faltaTipo: false,
         faltaRaca: false,
@@ -65,8 +67,28 @@ name: 'Cadastro',
       }
     },
     mounted() {
+      console.log(this.$route.params.id);
+      if(this.$route.params.id != undefined) {
+        fetch("http://localhost:8080/cachorros" + this.$route.params.id, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        })
+        .then((response) => {
+          if(response.ok) return response.json();
+        })
+        .then((cachorroApi) => {
+          this.cachorro = cachorroApi;
+        })
+      }
     },
     methods: {
+
+      salvaOuEditaCachorro(){
+
+      },
+
       salvaDadosCachorro() {
         if(this.nomeCadastro == "") {
           this.faltaNome = true;
@@ -90,8 +112,18 @@ name: 'Cadastro',
             raca: this.racaCadastro,
             idade: this.idadeCadastro
         }
-          fetch("http://localhost:8080/cachorros", {
-            method: "POST",
+
+        let parametroId = "";
+        let metodoHTTP = "";
+        if(this.$route.params.id != undefined) {
+          metodoHTTP = "PUT";
+          parametroId = this.$route.params.id;
+        } else {
+          metodoHTTP = "POST";
+        }
+
+          fetch("http://localhost:8080/cachorros/" + parametroId, {
+            method: metodoHTTP,
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
