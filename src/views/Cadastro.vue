@@ -11,12 +11,12 @@
               <div class="form-row">
                   <div class="col-4">
                       <label for="nome">Nome</label>
-                      <input v-model="nomeCadastro" type="nome" class="form-control" id="nome">
+                      <input v-model="cachorro.nome" type="nome" class="form-control" id="nome">
                       <p v-if="faltaNome">O campo nome é obrigatório</p>
                   </div>
                   <div class="col-4">
                       <label for="tipo">Tipo</label>
-                      <select v-model="tipoCadastro" id="tipo" class="form-control">
+                      <select v-model="cachorro.tipo" id="tipo" class="form-control">
                           <option selected>Selecione</option>
                           <option>Cachorro</option>
                       </select>
@@ -24,7 +24,7 @@
                   </div>
                   <div class="col-4">
                       <label for="raça">Raça</label>
-                      <select v-model="racaCadastro" id="raça" class="form-control">
+                      <select v-model="cachorro.raca" id="raça" class="form-control">
                           <option selected>Selecione</option>
                           <option>SRD</option>
                       </select>
@@ -32,7 +32,7 @@
                   </div>
                   <div class="col-4 form-group">
                       <label for="idade">Idade</label>
-                      <input v-model="idadeCadastro" type="number" class="form-control" id="idade" min="0" max="30">
+                      <input v-model="cachorro.idade" type="number" class="form-control" id="idade" min="0" max="30">
                       <p v-if="faltaIdade">O campo idade é obrigatório</p>
                   </div> 
                   <button @click="salvaDadosCachorro" type="button" class="btn-cadastro btn">Salvar</button>
@@ -55,11 +55,12 @@ name: 'Cadastro',
     data() {
       return {
         cachorro: {
-          nomeCadastro: "",
-          tipoCadastro: "",
-          racaCadastro: "",
-          idadeCadastro: ""
+          nome: "",
+          tipo: "",
+          raca: "",
+          idade: ""
         },
+        
         faltaNome: false,
         faltaTipo: false,
         faltaRaca: false,
@@ -69,7 +70,7 @@ name: 'Cadastro',
     mounted() {
       console.log(this.$route.params.id);
       if(this.$route.params.id != undefined) {
-        fetch("http://localhost:8080/cachorros" + this.$route.params.id, {
+        fetch("http://localhost:8080/cachorros/" + this.$route.params.id, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -90,27 +91,27 @@ name: 'Cadastro',
       },
 
       salvaDadosCachorro() {
-        if(this.nomeCadastro == "") {
+        if(this.cachorro.nome == "") {
           this.faltaNome = true;
         } 
         
-        if(this.tipoCadastro == "") {
+        if(this.cachorro.tipo == "") {
           this.faltaTipo = true; 
         }
         
-        if(this.racaCadastro == "") {
+        if(this.cachorro.raca == "") {
           this.faltaRaca = true;
         } 
         
-        if(this.idadeCadastro == "") {
+        if(this.cachorro.idade == "") {
           this.faltaIdade = true;
         }
 
-        if(this.nomeCadastro != "" && this.tipoCadastro != "" && this.racaCadastro != "" && this.idadeCadastro != "" ) {
+        if(this.cachorro.nome != "" && this.cachorro.tipo != "" && this.cachorro.raca != "" && this.cachorro.idade != "" ) {
           let cachorro = {
-            nome: this.nomeCadastro,
-            raca: this.racaCadastro,
-            idade: this.idadeCadastro
+            nome: this.cachorro.nome,
+            raca: this.cachorro.raca,
+            idade: this.cachorro.idade
         }
 
         let parametroId = "";
@@ -122,6 +123,7 @@ name: 'Cadastro',
           metodoHTTP = "POST";
         }
 
+          console.log(cachorro);
           fetch("http://localhost:8080/cachorros/" + parametroId, {
             method: metodoHTTP,
             headers: {
