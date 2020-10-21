@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Pesquisa from '../views/Pesquisa.vue'
-import Cadastro from '../views/Cadastro.vue'
-import Editar from '../views/Editar.vue'
+import PesquisaPet from '../views/Pesquisa.vue'
+import CadastroPet from '../views/Cadastro.vue'
+import PesquisaVet from '../views/PesquisaVet.vue'
+import CadastroVet from '../views/CadastroVet.vue'
 
 Vue.use(VueRouter)
 
@@ -14,20 +15,27 @@ const routes = [
     component: Home
   },
   {
-    path: '/pesquisa',
+    path: '/pesquisaPet',
     name: 'Pesquisa',
-    component: Pesquisa
+    component: PesquisaPet
   },
   {
-    path: '/cadastro/:id?',
+    path: '/pesquisaVet',
+    name: 'Pesquisa',
+    component: PesquisaVet
+  },
+  {
+    path: '/cadastroPet/:id?',
     name: 'Cadastro',
-    component: Cadastro
+    component: CadastroPet
   },
   {
-    path: '/editarPet',
-    name: 'Editar',
-    component: Editar
+    path: '/cadastroVet/:id?',
+    name: 'CadastroVet',
+    component: CadastroVet
   },
+  
+  
   
 ]
 

@@ -7,6 +7,9 @@
       <div class="welcome-txt">
           <Welcome msg="Bem vindo ao Vue Pet Clinic" txt="A maneira mais fácil e reativa de cadastrar seus pets na web!"></Welcome>
       </div>
+      <div>
+        <h2>Cachorros</h2>
+      </div>
       <div class="card leftCard">
           <div>
             <button @click="irParaPesquisaDePet" href="#" title="" class="btn-styled btn">
@@ -20,7 +23,25 @@
             </button>
             <Card title="Novo Cadastro" txt="Não encontrou um pet? Você pode cadastrar um novo pet aqui!"></Card>
           </div>
-    </div>
+      </div>
+      <div>
+          <h2>Veterinários</h2>
+      </div>
+      <div class="card leftCard">
+            <div>
+              <button @click="irParaPesquisaDeVet" href="#" title="" class="btn-styled btn">
+              </button>
+              <Card title="Pesquisa" txt="Encontre um veterinário pesquisando por um nome"></Card>
+            </div>  
+      </div>
+      <div class="card rightCard">
+        <div>
+            <button @click="irParaCadastroDeVet" href="#" title="" class="btn-styled btn">
+            </button>
+            <Card title="Novo Cadastro" txt="Não encontrou um veterinário? Você pode cadastrar um novo veterinário aqui!"></Card>
+          </div>
+      </div>
+    
     </div> 
   </div>
 </template>
@@ -39,10 +60,19 @@ export default {
     },
     methods: {
         irParaPesquisaDePet() {
-        this.$router.push({ path: "/pesquisa"})
+        this.$router.push({ path: "/pesquisaPet"})
         },
+
+        irParaPesquisaDeVet() {
+        this.$router.push({ path: "/pesquisaVet"})
+        },
+
         irParaCadastroDePet() {
-        this.$router.push({ path: "/cadastro"})
+        this.$router.push({ path: "/cadastroPet"})
+        },
+
+        irParaCadastroDeVet() {
+        this.$router.push({ path: "/cadastroVet"})
         }
     }
 }

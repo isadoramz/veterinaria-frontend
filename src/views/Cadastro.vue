@@ -86,10 +86,6 @@ name: 'Cadastro',
     },
     methods: {
 
-      salvaOuEditaCachorro(){
-
-      },
-
       salvaDadosCachorro() {
         if(this.cachorro.nome == "") {
           this.faltaNome = true;
