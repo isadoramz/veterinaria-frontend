@@ -92,7 +92,7 @@ export default {
       },
 
       editaVeterinario(id){
-        this.$router.push({ name: "Cadastro", params: { id: id } });
+        this.$router.push({ name: "CadastroVet", params: { id: id } });
       },
     },
 };
