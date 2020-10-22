@@ -55,7 +55,14 @@
 }
 
 .card-pesquisa {
-  border: 1px solid #666666;   
+  border: 1px solid #666666;
+  list-style-type: none;
+  border: 1px solid #666666;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 5px;
+  margin: 10px;
+  border-radius: 5px;   
 }
  
 .btn-styled {
@@ -79,6 +86,15 @@
   background-color:#eeeeee;
   height: 35px;
   width: 80px;
+  float: right;
+  color: #666666;
+  margin-bottom: 15px;
+}
+
+.btn-card-pacientes {
+  background-color:#eeeeee;
+  height: 35px;
+  width: 150px;
   float: right;
   color: #666666;
   margin-bottom: 15px;
@@ -111,10 +127,9 @@ label {
 
 li {
   list-style-type: none;
-  border: 1px solid #666666;
-  text-align: left;
-  padding-top: 15px;
-  padding-left: 5px;
-  margin: 10px;
-  border-radius: 5px;
+}
+
+.search {
+  color: #666666;
+  font-size: 30px;
 }
