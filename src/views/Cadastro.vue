@@ -30,11 +30,19 @@
                       </select>
                       <p v-if="faltaRaca">O campo raça é obrigatório</p>
                   </div>
-                  <div class="col-4 form-group">
+                  <div class="col-3 form-group">
                       <label for="idade">Idade</label>
                       <input v-model="cachorro.idade" type="number" class="form-control" id="idade" min="0" max="30">
                       <p v-if="faltaIdade">O campo idade é obrigatório</p>
-                  </div> 
+                  </div>
+                  <div class="col-6">
+                      <label for="vetResponsavel">Veterinário Responsável</label>
+                      <select v-model="cachorro.veterinário" id="tipo" class="form-control">
+                          <option selected>Selecione</option>
+                          <option v-for="veterinario in veterinarios" :key="veterinario">{{veterinario.nome}}</option>
+                      </select>
+                      <p v-if="faltaTipo">O campo tipo é obrigatório</p>
+                  </div>
                   <button @click="salvaDadosCachorro" type="button" class="btn-cadastro btn">Salvar</button>
               </div>
           </form>
@@ -58,13 +66,16 @@ name: 'Cadastro',
           nome: "",
           tipo: "",
           raca: "",
-          idade: ""
+          idade: "",
+          veterinario: "",
         },
         
         faltaNome: false,
         faltaTipo: false,
         faltaRaca: false,
-        faltaIdade: false
+        faltaIdade: false,
+
+        veterinarios: []
       }
     },
     mounted() {
@@ -83,6 +94,20 @@ name: 'Cadastro',
           this.cachorro = cachorroApi;
         })
       }
+
+      fetch("http://localhost:8080/veterinarios", {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        })
+        .then((response) => {
+          if(response.ok) return response.json();
+        })
+        .then((veterinarioApi) => {
+          this.veterinarios = veterinarioApi;
+        })
+
     },
     methods: {
 
