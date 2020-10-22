@@ -18,7 +18,7 @@
                   </div>
                   <div class="col-6">
                       <label for="cpf">CPF</label>
-                      <the-mask :minlength="11" v-model="veterinario.cpf" type="cpf" class="form-control" :mask="['###.###.###-##', '##.###.###/####-##']" />
+                      <the-mask :minlength="11" v-model="veterinario.cpf" type="cpf" class="form-control" :mask="['###.###.###-##']" />
                       <p v-if="faltaCPF">O campo CPF é obrigatório e precisa ter 11 caracteres</p>
                   </div>
                   <div class="col-4">
@@ -91,12 +91,15 @@ name: 'CadastroVet',
           this.faltaNascimento = true;
         } 
         
+
         if(this.veterinario.nome != "" && this.veterinario.cpf != "" && this.veterinario.cpf.length == 11 && this.veterinario.nascimento != "") {
           let veterinario = {
             nome: this.veterinario.nome,
             cpf: this.veterinario.cpf,
             nascimento: this.veterinario.nascimento
         }
+
+        
 
         let parametroId = "";
         let metodoHTTP = "";
