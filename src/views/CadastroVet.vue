@@ -19,7 +19,7 @@
                   <div class="col-6">
                       <label for="cpf">CPF</label>
                       <the-mask :minlength="11" v-model="veterinario.cpf" type="cpf" class="form-control" :mask="['###.###.###-##']" />
-                      <p v-if="faltaCPF">O campo CPF é obrigatório e precisa ter 11 caracteres</p>
+                      <p v-if="faltaCPF">O campo CPF é obrigatório, único e precisa ter 11 caracteres</p>
                   </div>
                   <div class="col-4">
                       <label for="nascimento">Data de Nascimento</label>
