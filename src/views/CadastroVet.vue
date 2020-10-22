@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="container">
     <div class="row">
@@ -16,8 +18,8 @@
                   </div>
                   <div class="col-6">
                       <label for="cpf">CPF</label>
-                      <input v-model="veterinario.cpf" type="cpf" class="form-control" id="nome">
-                      <p v-if="faltaCPF">O campo CPF é obrigatório</p>
+                      <the-mask :minlength="11" v-model="veterinario.cpf" type="cpf" class="form-control" :mask="['###.###.###-##', '##.###.###/####-##']" />
+                      <p v-if="faltaCPF">O campo CPF é obrigatório e precisa ter 11 caracteres</p>
                   </div>
                   <div class="col-4">
                       <label for="nascimento">Data de Nascimento</label>
@@ -35,11 +37,14 @@
 </template>
 
 <script>
+import {TheMask} from 'vue-the-mask'
 import Welcome from '../components/Welcome'
 export default {
 name: 'CadastroVet',
     components: {
-    Welcome
+    Welcome,
+    TheMask
+    
     },
     data() {
       return {
@@ -78,7 +83,7 @@ name: 'CadastroVet',
           this.faltaNome = true;
         } 
         
-        if(this.veterinario.cpf == "") {
+        if(this.veterinario.cpf == "" || this.veterinario.cpf.length < 11) {
           this.faltaCPF = true; 
         }
         
@@ -86,8 +91,7 @@ name: 'CadastroVet',
           this.faltaNascimento = true;
         } 
         
-
-        if(this.veterinario.nome != "" && this.veterinario.cpf != "" && this.veterinario.nascimento != "") {
+        if(this.veterinario.nome != "" && this.veterinario.cpf != "" && this.veterinario.cpf.length == 11 && this.veterinario.nascimento != "") {
           let veterinario = {
             nome: this.veterinario.nome,
             cpf: this.veterinario.cpf,
