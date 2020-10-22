@@ -11,7 +11,7 @@
               <div class="form-row">
                   <div class="col-6">
                       <label for="nome">Nome</label>
-                      <input v-model="veterinario.nome" type="nome" class="form-control" id="nome">
+                      <input v-model="veterinario.nome" :maxlength="100" type="nome" class="form-control" id="nome">
                       <p v-if="faltaNome">O campo nome é obrigatório</p>
                   </div>
                   <div class="col-6">
