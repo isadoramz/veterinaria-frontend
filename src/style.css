@@ -48,7 +48,8 @@
 .card {
   width: 49.5%; 
   height: 120px;
-  border: 1px solid #666666;   
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
