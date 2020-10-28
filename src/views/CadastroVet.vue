@@ -22,8 +22,8 @@
                       <p v-if="faltaCPF">O campo CPF é obrigatório, único e precisa ter 11 caracteres</p>
                   </div>
                   <div class="col-4">
-                      <label for="nascimento">Data de Nascimento</label>
-                      <input v-model="veterinario.nascimento" type="date" class="form-control" id="nome">
+                      <label for="dataNascimento">Data de Nascimento</label>
+                      <input v-model="veterinario.dataNascimento" type="date" class="form-control" id="nome">
                       <p v-if="faltaNascimento">O campo nascimento é obrigatório</p>
                   </div>
                   <button @click="salvaDadosVeterinario" type="button" class="btn-cadastro btn">Salvar</button>
@@ -51,7 +51,7 @@ name: 'CadastroVet',
         veterinario: {
           nome: "",
           cpf: "",
-          nascimento: "",
+          dataNascimento: "",
         },
         
         faltaNome: false,
@@ -87,16 +87,16 @@ name: 'CadastroVet',
           this.faltaCPF = true; 
         }
         
-        if(this.veterinario.nascimento == "") {
+        if(this.veterinario.dataNascimento == "") {
           this.faltaNascimento = true;
         } 
         
 
-        if(this.veterinario.nome != "" && this.veterinario.cpf != "" && this.veterinario.cpf.length == 11 && this.veterinario.nascimento != "") {
+        if(this.veterinario.nome != "" && this.veterinario.cpf != "" && this.veterinario.cpf.length == 11 && this.veterinario.dataNascimento != "") {
           let veterinario = {
             nome: this.veterinario.nome,
             cpf: this.veterinario.cpf,
-            nascimento: this.veterinario.nascimento
+            dataNascimento: this.veterinario.dataNascimento
         }
 
         
