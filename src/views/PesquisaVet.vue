@@ -21,40 +21,58 @@
     </div>
     <div v-if="chamouVeterinario">
       <ul>
-        <li class="card-pesquisa" v-for="veterinario in veterinarios" :key="veterinario">
+        <li class="card-pesquisa" v-for="veterinario in veterinarios" :key="veterinario.id">
           <div class="row">
             <div class="col-2">
               <p>Nome: {{veterinario.nome}}</p>
             </div>
-            <div class="col-2">
-              <p>CPF: {{veterinario.cpf}}</p>
+            <div class="col-3">
+              <p>CPF: <the-mask readonly :minlength="11" v-model="veterinario.cpf" type="cpf" class="mascaraCPF" :mask="['###.###.###-##']" /> </p>
             </div>
             <div class="col-2">
-              <p>Nascimento: {{veterinario.nascimento}}</p>
+              <p>Idade: {{transformaNascimento(veterinario.dataNascimento)}} anos</p>
             </div>
             <div class="col-2">
                <button @click="editaVeterinario(veterinario.id)" type="button" class="btn btn-card-pesquisa">Editar</button>
             </div>
+             <div class="col-2">
+               <button @click="verPacientes(veterinario.id)" type="button" class="btn btn-card-pacientes">Ver pacientes</button>
+            </div>
           </div>
-        </li>
-      </ul>
+          <div v-if="chamouPacientes">
+            <p>Pacientes:</p>
+            <ul>
+                <li v-for="cachorro in pegaCachorrosDoVet(veterinario.id)" :key="cachorro.id">
+                    <p>Nome do Pet: {{cachorro.nome}}</p>
+                </li>
+            </ul>
+          </div> 
+        </li> 
+    </ul>
     </div>
   </div>
 </template>
 
 <script>
 
+import moment from "moment"
 import Welcome from '../components/Welcome'
+import {TheMask} from 'vue-the-mask'
 export default {
     name: 'Pesquisa',
     components: {
     Welcome,
+    TheMask
     },
     data() {
     return {
       veterinarios: {},
+      cachorros: {},
+      cachorroDeCadaVet: [],
       filtroNomeVeterinario: "",
       chamouVeterinario: false,
+      chamouPacientes: false,
+
     };
     },
     mounted() {
@@ -87,13 +105,55 @@ export default {
 
         .then((json) => {
           this.veterinarios = json;
-          console.log(json);
         })
       },
 
       editaVeterinario(id){
         this.$router.push({ name: "CadastroVet", params: { id: id } });
       },
+
+      verPacientes(idVet) {
+          this.chamouPacientes = true;
+
+          fetch(
+          `http://localhost:8080/veterinarios/${idVet}/cachorros`  , 
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((resposta) => {
+         if (resposta.ok) return resposta.json();
+        })
+
+        .then((cachorrosDoVeterinario) => {
+          let associacaoVeterinarioPacientes = {
+            idVet : idVet,
+            cachorros: cachorrosDoVeterinario
+          }
+
+          this.cachorroDeCadaVet.push(associacaoVeterinarioPacientes);
+
+        })
+      },
+
+      pegaCachorrosDoVet(idVet) {
+        let cachorrosDoVeterinario = this.cachorroDeCadaVet.filter(associacao => {
+          return associacao.idVet === idVet
+        });
+
+        if(cachorrosDoVeterinario.length > 0)
+          return cachorrosDoVeterinario[0].cachorros;
+        else return [];
+      },
+
+      transformaNascimento(data) {
+       return moment().diff(moment(data), "years");
+       
+      }
     },
 };
 </script>
