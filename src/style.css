@@ -17,6 +17,9 @@
 .welcome-txt {
   margin-bottom: 70px;
   padding-top: 50px;
+    text-align: center;
+    margin-right: 100px;
+
 }
 
 .div-txt {
@@ -128,6 +131,7 @@ label {
 li {
   list-style-type: none;
 }
+
 
 .search {
   color: #666666;
