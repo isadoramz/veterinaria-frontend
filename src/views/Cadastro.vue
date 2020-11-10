@@ -79,7 +79,6 @@ name: 'Cadastro',
       }
     },
     mounted() {
-      console.log(this.$route.params.id);
       if(this.$route.params.id != undefined) {
         fetch("http://localhost:8080/cachorros/" + this.$route.params.id, {
           method: "GET",
@@ -144,7 +143,6 @@ name: 'Cadastro',
           metodoHTTP = "POST";
         }
 
-          console.log(cachorro);
           fetch("http://localhost:8080/cachorros/" + parametroId, {
             method: metodoHTTP,
             headers: {

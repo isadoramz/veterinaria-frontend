@@ -90,7 +90,6 @@ export default {
 
         .then((json) => {
           this.cachorros = json;
-          console.log(json);
         })
       },
 

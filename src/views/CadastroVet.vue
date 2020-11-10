@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import {TheMask} from 'vue-the-mask'
 import Welcome from '../components/Welcome'
 export default {
@@ -60,7 +61,6 @@ name: 'CadastroVet',
       }
     },
     mounted() {
-      console.log(this.$route.params.id);
       if(this.$route.params.id != undefined) {
         fetch("http://localhost:8080/veterinarios/" + this.$route.params.id, {
           method: "GET",
@@ -96,10 +96,8 @@ name: 'CadastroVet',
           let veterinario = {
             nome: this.veterinario.nome,
             cpf: this.veterinario.cpf,
-            dataNascimento: this.veterinario.dataNascimento
+            dataNascimento: moment(this.veterinario.dataNascimento).toISOString()
         }
-
-        
 
         let parametroId = "";
         let metodoHTTP = "";
@@ -110,7 +108,6 @@ name: 'CadastroVet',
           metodoHTTP = "POST";
         }
 
-          console.log(veterinario);
           fetch("http://localhost:8080/veterinarios/" + parametroId, {
             method: metodoHTTP,
             headers: {
